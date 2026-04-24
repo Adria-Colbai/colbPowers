@@ -21,7 +21,7 @@ Before any design or technical plan is created, the main agent must load global 
     *   `.specs/memory/constitution.md`
     *   `.specs/memory/features.md`
 *   **Constraint**: The agent cannot proceed to the next step until these files are read.
-*   **Output Path Change**: All generated specs must be saved to `.specs/memory/docs/specs/` and plans to `.specs/memory/docs/plans/` (replacing the default `docs/superpowers/` paths).
+*   **Output Path Change**: All generated specs must be saved to `.specs/memory/docs/specs/` and plans to `.specs/memory/docs/plans/` (replacing the default `.specs/memory/docs/` paths).
 *   **Content Requirement**: Every generated spec and plan MUST explicitly mention which feature(s) from `features.md` it is referring to.
 
 ### 2. Context Injection (Subagent Phase)

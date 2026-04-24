@@ -64,7 +64,7 @@ All paths below are relative to `/home/adria/COLBAI/TFG/colbPowers/`.
 cp -rn /home/adria/.claude/plugins/cache/claude-plugins-official/superpowers/5.0.7/. /home/adria/COLBAI/TFG/colbPowers/
 ```
 
-Note: `-n` prevents overwriting our existing `docs/specs/2026-04-19-colbpowers-plugin-design.md`. Because the superpowers `docs/` has different subdirectories (`docs/superpowers/`, `docs/plans/`, `docs/windows/`, `docs/testing.md`, `docs/README.codex.md`, `docs/README.opencode.md`), the copy merges cleanly.
+Note: `-n` prevents overwriting our existing `docs/specs/2026-04-19-colbpowers-plugin-design.md`. Because the superpowers `docs/` has different subdirectories (`.specs/memory/docs/`, `docs/plans/`, `docs/windows/`, `docs/testing.md`, `docs/README.codex.md`, `docs/README.opencode.md`), the copy merges cleanly.
 
 - [ ] **Step 2: Verify the copy landed**
 
@@ -91,7 +91,7 @@ Rationale: we prune first so the initial commit is clean and small.
 ### Task 2: Prune unused files and initialize git
 
 **Files:**
-- Delete: `.opencode/`, `.codex/`, `.cursor-plugin/`, `.github/`, `.gitattributes`, `.version-bump.json`, `gemini-extension.json`, `package.json`, `scripts/`, `tests/`, `CHANGELOG.md`, `RELEASE-NOTES.md`, `AGENTS.md`, `GEMINI.md`, `CODE_OF_CONDUCT.md`, `skills/using-superpowers/`, `skills/writing-skills/`, `commands/brainstorm.md`, `commands/execute-plan.md`, `commands/write-plan.md`, `docs/README.codex.md`, `docs/README.opencode.md`, `docs/windows/`, `docs/superpowers/`, `docs/testing.md`
+- Delete: `.opencode/`, `.codex/`, `.cursor-plugin/`, `.github/`, `.gitattributes`, `.version-bump.json`, `gemini-extension.json`, `package.json`, `scripts/`, `tests/`, `CHANGELOG.md`, `RELEASE-NOTES.md`, `AGENTS.md`, `GEMINI.md`, `CODE_OF_CONDUCT.md`, `skills/using-superpowers/`, `skills/writing-skills/`, `commands/brainstorm.md`, `commands/execute-plan.md`, `commands/write-plan.md`, `docs/README.codex.md`, `docs/README.opencode.md`, `docs/windows/`, `.specs/memory/docs/`, `docs/testing.md`
 - Create: `.gitignore`
 
 - [ ] **Step 1: Delete cross-harness directories**
@@ -118,7 +118,7 @@ rm -f CHANGELOG.md RELEASE-NOTES.md AGENTS.md GEMINI.md CODE_OF_CONDUCT.md
 
 ```bash
 rm -f docs/README.codex.md docs/README.opencode.md docs/testing.md
-rm -rf docs/windows docs/superpowers
+rm -rf docs/windows .specs/memory/docs
 ```
 
 Verify:

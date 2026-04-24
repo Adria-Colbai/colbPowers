@@ -101,7 +101,7 @@ All 14 superpowers skills are copied into `skills/` as the starting point. From 
 
 | Skill | Change |
 |---|---|
-| `brainstorming` | Output path `.specs/memory/features/<feature>/design.md` (not `docs/superpowers/specs/…`). Read `constitution.md` as constraint input. Drop the forced "commit design doc" step — we do not assume the consuming project commits specs. |
+| `brainstorming` | Output path `.specs/memory/features/<feature>/design.md` (not `.specs/memory/docs/specs/…`). Read `constitution.md` as constraint input. Drop the forced "commit design doc" step — we do not assume the consuming project commits specs. |
 | `writing-plans` | Output path `.specs/memory/features/<feature>/tasks.md`. Use `tasks_template.md` format. Read constitution + design as inputs. |
 | `subagent-driven-development` | Reads `tasks.md` in colbPowers format. Updates `active_context.json` as tasks complete (status, current focus). |
 | `requesting-code-review` | Reviewer variant: inputs are constitution + features + design + tasks + `src/`. Emits pass / warn / fail per `colbSpec` Reviewer convention. |
@@ -186,7 +186,7 @@ colbPowers/
 └── NOTICE
 ```
 
-Removed from the seed: `.opencode/`, `.codex/`, `.cursor-plugin/`, `gemini-extension.json`, `package.json`, `scripts/`, `tests/`, `docs/superpowers/` (the superpowers contributor docs — we keep `docs/` only for colbPowers' own design docs), `CHANGELOG.md`, `RELEASE-NOTES.md`, `AGENTS.md`, `GEMINI.md`, `CODE_OF_CONDUCT.md`, `.github/`, `.gitattributes`, `.version-bump.json`.
+Removed from the seed: `.opencode/`, `.codex/`, `.cursor-plugin/`, `gemini-extension.json`, `package.json`, `scripts/`, `tests/`, `.specs/memory/docs/` (the superpowers contributor docs — we keep `docs/` only for colbPowers' own design docs), `CHANGELOG.md`, `RELEASE-NOTES.md`, `AGENTS.md`, `GEMINI.md`, `CODE_OF_CONDUCT.md`, `.github/`, `.gitattributes`, `.version-bump.json`.
 
 ## 8. Bootstrap Mechanism
 
