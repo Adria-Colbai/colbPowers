@@ -1,7 +1,7 @@
 /**
- * Superpowers plugin for OpenCode.ai
+ * colbpowers plugin for OpenCode.ai
  *
- * Injects superpowers bootstrap context via system prompt transform.
+ * Injects colbpowers bootstrap context via system prompt transform.
  * Auto-registers skills directory via config hook (no symlinks needed).
  */
 
@@ -46,7 +46,7 @@ const normalizePath = (p, homeDir) => {
   return path.resolve(normalized);
 };
 
-export const SuperpowersPlugin = async ({ client, directory }) => {
+export const ColbPowersPlugin = async ({ client, directory }) => {
   const homeDir = os.homedir();
   const superpowersSkillsDir = path.resolve(__dirname, '../../skills');
   const envConfigDir = normalizePath(process.env.OPENCODE_CONFIG_DIR, homeDir);
@@ -82,7 +82,7 @@ ${toolMapping}
   };
 
   return {
-    // Inject skills path into live config so OpenCode discovers superpowers skills
+    // Inject skills path into live config so OpenCode discovers colbpowers skills
     // without requiring manual symlinks or config file edits.
     // This works because Config.get() returns a cached singleton — modifications
     // here are visible when skills are lazily discovered later.
