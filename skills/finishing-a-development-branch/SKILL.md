@@ -15,6 +15,9 @@ Guide completion of development work by presenting clear options and handling ch
 
 ## The Process
 
+### Step 0: Spec Synchronization
+Compare the final branch implementation against `.specs/memory/features.md` and the relevant specs in `.specs/memory/docs/specs/` or `.specs/memory/docs/plans/`. Use the Write or Edit tool to update the specs if the implementation diverged. You MUST do this before merging or creating a PR.
+
 ### Step 1: Verify Tests
 
 **Before presenting options, verify tests pass:**

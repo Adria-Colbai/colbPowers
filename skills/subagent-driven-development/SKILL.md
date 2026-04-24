@@ -123,6 +123,10 @@ Implementer subagents report one of four statuses. Handle each appropriately:
 - `./spec-reviewer-prompt.md` - Dispatch spec compliance reviewer subagent
 - `./code-quality-reviewer-prompt.md` - Dispatch code quality reviewer subagent
 
+**IMPORTANT CRITICAL REQUIREMENT:** 
+When constructing the prompt for the subagent, you MUST prepend the following instruction to the top of their prompt:
+> "Before starting your task, use the Read tool on `.specs/memory/constitution.md` and `.specs/memory/features.md`. You must adhere strictly to the project rules and feature requirements defined in these files."
+
 ## Example Workflow
 
 ```

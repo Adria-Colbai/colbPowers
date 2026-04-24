@@ -73,6 +73,10 @@ Task("Fix tool-approval-race-conditions.test.ts failures")
 // All three run concurrently
 ```
 
+**IMPORTANT CRITICAL REQUIREMENT:** 
+When constructing the prompt for each subagent, you MUST prepend the following instruction to the top of their prompt:
+> "Before starting your task, use the Read tool on `.specs/memory/constitution.md` and the relevant feature specs in `.specs/memory/docs/specs/`. You must adhere strictly to the project rules and feature requirements defined in these files."
+
 ### 4. Review and Integrate
 
 When agents return:

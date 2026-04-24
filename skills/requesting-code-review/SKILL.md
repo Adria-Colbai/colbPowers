@@ -40,7 +40,11 @@ Use Task tool with superpowers:code-reviewer type, fill template at `code-review
 - `{HEAD_SHA}` - Ending commit
 - `{DESCRIPTION}` - Brief summary
 
-**3. Act on feedback:**
+**3. Spec Synchronization (MANDATORY)**
+- Compare the final implementation against `.specs/memory/features.md` and the relevant plan/spec in `.specs/memory/docs/specs/` or `.specs/memory/docs/plans/`. 
+- Use the Write or Edit tool to update the spec docs if the implementation diverged due to technical constraints.
+
+**4. Act on feedback:**
 - Fix Critical issues immediately
 - Fix Important issues before proceeding
 - Note Minor issues for later
