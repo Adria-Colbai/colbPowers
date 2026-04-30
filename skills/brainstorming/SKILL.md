@@ -19,6 +19,8 @@ Every project goes through this process. A todo list, a single-function utility,
 
 ## Checklist
 
+You MUST create a task for each of these items and complete them in order:
+
 0. **Mandatory Context Gathering** — Use the Read tool on `.specs/memory/constitution.md` and `.specs/memory/features.md`. Do not proceed until you have read these files.
 1. **Explore project context** — check files, docs, recent commits
 2. **Offer visual companion** (if topic will involve visual questions) — this is its own message, not combined with a clarifying question. See the Visual Companion section below.
