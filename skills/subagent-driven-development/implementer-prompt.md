@@ -1,6 +1,6 @@
 # Implementer Subagent Prompt Template
 
-Use this template when dispatching an implementer subagent.
+Use this template when dispatching an implementer subagent. Make sure to mention to the agent that it must follow `.specs/memory/constitution.md` and `.specs/memory/features.md` rules and technologies in case they exist.
 
 ```
 Task tool (general-purpose):
