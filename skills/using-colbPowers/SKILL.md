@@ -31,9 +31,11 @@ When starting a conversation or project, you MUST verify the project's memory do
 1. Check if `.specs/memory/constitution.md` and `.specs/memory/features.md` exist and are populated.
 2. If they are missing or empty, you MUST immediately invoke the `defining-constitution` and `defining-features` skills to help the user create them before taking any other action.
 
-When exploring the project structure and reading files, do this in this order:
-1. First use the tools provided by the code-review-graph MCP, in case you have acces to it. These tools provide many ways to properly explore and understand the project structure, and recent changes made.
-2. When the tools from code-review-graph are do not fit or are unavailable, use normal exploring tools
+## Code-Review-Graph MCP
+
+If `code-review-graph` MCP tools are available, prefer them over Grep/Glob/Read for codebase exploration. The graph provides structural context (callers, dependents, impact radius) that file scanning cannot, at lower token cost.
+
+Fall back to Grep/Glob/Read only when the graph doesn't cover what you need.
 
 ## How to Access Skills
 

@@ -74,8 +74,9 @@ Task("Fix tool-approval-race-conditions.test.ts failures")
 ```
 
 **IMPORTANT CRITICAL REQUIREMENT:** 
-When constructing the prompt for each subagent, you MUST prepend the following instruction to the top of their prompt:
+When constructing the prompt for each subagent, you MUST prepend the following instructions to the top of their prompt:
 > "Before starting your task, use the Read tool on `.specs/memory/constitution.md` and the relevant feature specs in `.specs/memory/docs/specs/`. You must adhere strictly to the project rules and feature requirements defined in these files."
+> "If `code-review-graph` MCP tools are available, prefer them over file scanning when exploring the codebase — they provide structural context at lower token cost."
 
 ### 4. Review and Integrate
 

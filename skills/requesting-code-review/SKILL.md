@@ -23,6 +23,8 @@ Dispatch colbPowers:code-reviewer subagent to catch issues before they cascade. 
 
 ## How to Request
 
+**0. Gather context (if `code-review-graph` available):** Use it to analyze what changed and gather structural context for the reviewer before constructing their prompt — it gives the subagent impact and dependency understanding without reading every file.
+
 **1. Get git SHAs:**
 ```bash
 BASE_SHA=$(git rev-parse HEAD~1)  # or origin/main

@@ -68,6 +68,7 @@ You MUST complete each phase before proceeding to the next.
    - Git diff, recent commits
    - New dependencies, config changes
    - Environmental differences
+   - If `code-review-graph` MCP is available, use it to analyze recent changes and trace affected execution paths before scanning files manually
 
 4. **Gather Evidence in Multi-Component Systems**
 

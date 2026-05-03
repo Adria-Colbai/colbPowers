@@ -22,6 +22,8 @@ Assume they are a skilled developer, but know almost nothing about our toolset o
 
 Before creating any plan, you MUST use the Read tool on `.specs/memory/constitution.md` and `.specs/memory/features.md`. Do not proceed until you have read these files.
 
+If `code-review-graph` MCP is available, also use it to understand the codebase structure and the impact of planned changes before mapping files — it reveals hidden dependents that prevent plans from breaking things they don't list.
+
 ## Scope Check
 
 If the spec covers multiple independent subsystems, it should have been broken into sub-project specs during brainstorming. If it wasn't, suggest breaking this into separate plans — one per subsystem. Each plan should produce working, testable software on its own.

@@ -18,6 +18,8 @@ Task tool (general-purpose):
 
     ## Before You Begin
 
+    When exploring the codebase, prefer `code-review-graph` MCP tools over file scanning if available — they provide structural context at lower token cost.
+
     If you have questions about:
     - The requirements or acceptance criteria
     - The approach or implementation strategy
