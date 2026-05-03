@@ -54,8 +54,8 @@ export const ColbPowersPlugin = async ({ client, directory }) => {
 
   // Helper to generate bootstrap content
   const getBootstrapContent = () => {
-    // Try to load using-superpowers skill
-    const skillPath = path.join(superpowersSkillsDir, 'using-superpowers', 'SKILL.md');
+    // Try to load using-colbPowers skill
+    const skillPath = path.join(superpowersSkillsDir, 'using-colbPowers', 'SKILL.md');
     if (!fs.existsSync(skillPath)) return null;
 
     const fullContent = fs.readFileSync(skillPath, 'utf8');
@@ -71,9 +71,9 @@ When skills reference tools you don't have, substitute OpenCode equivalents:
 Use OpenCode's native \`skill\` tool to list and load skills.`;
 
     return `<EXTREMELY_IMPORTANT>
-You have superpowers.
+You have colbPowers.
 
-**IMPORTANT: The using-superpowers skill content is included below. It is ALREADY LOADED - you are currently following it. Do NOT use the skill tool to load "using-superpowers" again - that would be redundant.**
+**IMPORTANT: The using-colbPowers skill content is included below. It is ALREADY LOADED - you are currently following it. Do NOT use the skill tool to load "using-colbPowers" again - that would be redundant.**
 
 ${content}
 

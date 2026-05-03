@@ -1,8 +1,8 @@
 # OpenCode Support Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use colbPowers:executing-plans to implement this plan task-by-task.
 
-**Goal:** Add full superpowers support for OpenCode.ai with a native JavaScript plugin that shares core functionality with the existing Codex implementation.
+**Goal:** Add full colbPowers support for OpenCode.ai with a native JavaScript plugin that shares core functionality with the existing Codex implementation.
 
 **Architecture:** Extract common skill discovery/parsing logic into `lib/skills-core.js`, refactor Codex to use it, then build OpenCode plugin using their native plugin API with custom tools and session hooks.
 
@@ -191,17 +191,17 @@ Add before `module.exports`:
  * Resolve a skill name to its file path, handling shadowing
  * (personal skills override superpowers skills).
  *
- * @param {string} skillName - Name like "superpowers:brainstorming" or "my-skill"
+ * @param {string} skillName - Name like "colbPowers:brainstorming" or "my-skill"
  * @param {string} superpowersDir - Path to superpowers skills directory
  * @param {string} personalDir - Path to personal skills directory
  * @returns {{skillFile: string, sourceType: string, skillPath: string} | null}
  */
 function resolveSkillPath(skillName, superpowersDir, personalDir) {
-    // Strip superpowers: prefix if present
-    const forceSuperpowers = skillName.startsWith('superpowers:');
-    const actualSkillName = forceSuperpowers ? skillName.replace(/^superpowers:/, '') : skillName;
+    // Strip colbPowers: prefix if present
+    const forceSuperpowers = skillName.startsWith('colbPowers:');
+    const actualSkillName = forceSuperpowers ? skillName.replace(/^colbPowers:/, '') : skillName;
 
-    // Try personal skills first (unless explicitly superpowers:)
+    // Try personal skills first (unless explicitly colbPowers:)
     if (!forceSuperpowers && personalDir) {
         const personalPath = path.join(personalDir, actualSkillName);
         const personalSkillFile = path.join(personalPath, 'SKILL.md');
@@ -516,7 +516,7 @@ export const SuperpowersPlugin = async ({ project, client, $, directory, worktre
         name: 'use_skill',
         description: 'Load and read a specific skill to guide your work. Skills contain proven workflows, mandatory processes, and expert techniques.',
         schema: z.object({
-          skill_name: z.string().describe('Name of the skill to load (e.g., "superpowers:brainstorming" or "my-custom-skill")')
+          skill_name: z.string().describe('Name of the skill to load (e.g., "colbPowers:brainstorming" or "my-custom-skill")')
         }),
         execute: async ({ skill_name }) => {
           // Resolve skill path (handles shadowing: personal > superpowers)
@@ -623,7 +623,7 @@ Add after the use_skill tool definition, before closing the tools array:
           let output = 'Available skills:\n\n';
 
           for (const skill of allSkills) {
-            const namespace = skill.sourceType === 'personal' ? '' : 'superpowers:';
+            const namespace = skill.sourceType === 'personal' ? '' : 'colbPowers:';
             const skillName = skill.name || path.basename(skill.path);
 
             output += `${namespace}${skillName}\n`;
@@ -712,26 +712,26 @@ When skills reference tools you don't have, substitute OpenCode equivalents:
 - Utilities and helpers specific to that skill
 
 **Skills naming:**
-- Superpowers skills: \`superpowers:skill-name\` (from ~/.config/opencode/superpowers/skills/)
+- colbPowers skills: \`colbPowers:skill-name\` (from ~/.config/opencode/colbPowers/skills/)
 - Personal skills: \`skill-name\` (from ~/.config/opencode/skills/)
-- Personal skills override superpowers skills when names match
+- Personal skills override colbPowers skills when names match
 `;
 
       // Check for updates (non-blocking)
       const hasUpdates = skillsCore.checkForUpdates(
-        path.join(homeDir, '.config/opencode/superpowers')
+        path.join(homeDir, '.config/opencode/colbPowers')
       );
 
       const updateNotice = hasUpdates ?
-        '\n\n⚠️ **Updates available!** Run `cd ~/.config/opencode/superpowers && git pull` to update superpowers.' :
+        '\n\n⚠️ **Updates available!** Run `cd ~/.config/opencode/colbPowers && git pull` to update colbPowers.' :
         '';
 
       // Return context to inject into session
       return {
         context: `<EXTREMELY_IMPORTANT>
-You have superpowers.
+You have colbPowers.
 
-**Below is the full content of your 'superpowers:using-superpowers' skill - your introduction to using skills. For all other skills, use the 'use_skill' tool:**
+**Below is the full content of your 'colbPowers:using-colbPowers' skill - your introduction to using skills. For all other skills, use the 'use_skill' tool:**
 
 ${usingSuperpowersContent}
 
@@ -821,7 +821,7 @@ use find_skills tool
 Use the `use_skill` tool to load a specific skill:
 
 ```
-use use_skill tool with skill_name: "superpowers:brainstorming"
+use use_skill tool with skill_name: "colbPowers:brainstorming"
 ```
 
 ### Personal Skills
@@ -991,7 +991,7 @@ Expected: Shows list of skills with names and descriptions
 
 **Step 2: Test use-skill command**
 
-Run: `.codex/superpowers-codex use-skill superpowers:brainstorming | head -20`
+Run: `.codex/superpowers-codex use-skill colbPowers:brainstorming | head -20`
 Expected: Shows brainstorming skill content
 
 **Step 3: Test bootstrap command**

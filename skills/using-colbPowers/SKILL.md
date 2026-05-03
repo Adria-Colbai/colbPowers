@@ -1,5 +1,5 @@
 ---
-name: using-superpowers
+name: using-colbPowers
 description: Use when starting any conversation - establishes how to find and use skills, requiring Skill tool invocation before ANY response including clarifying questions
 ---
 
@@ -17,10 +17,10 @@ This is not negotiable. This is not optional. You cannot rationalize your way ou
 
 ## Instruction Priority
 
-Superpowers skills override default system prompt behavior, but **user instructions always take precedence**:
+ColbPowers skills override default system prompt behavior, but **user instructions always take precedence**:
 
 1. **User's explicit instructions** (CLAUDE.md, GEMINI.md, AGENTS.md, direct requests) — highest priority
-2. **Superpowers skills** — override default system behavior where they conflict
+2. **colbPowers skills** — override default system behavior where they conflict
 3. **Default system prompt** — lowest priority
 
 If CLAUDE.md, GEMINI.md, or AGENTS.md says "don't use TDD" and a skill says "always use TDD," follow the user's instructions. The user is in control.
@@ -30,6 +30,10 @@ If CLAUDE.md, GEMINI.md, or AGENTS.md says "don't use TDD" and a skill says "alw
 When starting a conversation or project, you MUST verify the project's memory documents:
 1. Check if `.specs/memory/constitution.md` and `.specs/memory/features.md` exist and are populated.
 2. If they are missing or empty, you MUST immediately invoke the `defining-constitution` and `defining-features` skills to help the user create them before taking any other action.
+
+When exploring the project structure and reading files, do this in this order:
+1. First use the tools provided by the code-review-graph MCP, in case you have acces to it. These tools provide many ways to properly explore and understand the project structure, and recent changes made.
+2. When the tools from code-review-graph are do not fit or are unavailable, use normal exploring tools
 
 ## How to Access Skills
 

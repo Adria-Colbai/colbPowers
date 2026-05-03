@@ -1,6 +1,6 @@
 # colbPowers Iteration 1 Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use colbPowers:subagent-driven-development (recommended) or colbPowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Build iteration 1 of colbPowers — a spec-first Claude Code plugin that seeds from superpowers, prunes cross-harness baggage, adds a colbPowers bootstrap + 6 native skills + 6 slash commands + 1 reviewer subagent, and passes the smoke tests defined in the spec §10.
 
@@ -1613,10 +1613,10 @@ The argument after `/colb:plan` is the feature name. If the user did not supply 
 Then run this three-skill sequence in this exact order:
 
 1. Invoke the `colbPowers:create-feature` skill. It scaffolds `.specs/memory/features/<slug>/` with `design.md` and `tasks.md` template stubs and updates `active_context.json`.
-2. Invoke the `superpowers:brainstorming` skill. For iteration 1, it still writes to its default location — relay the output file path to the user, and follow up by copying the result into `.specs/memory/features/<slug>/design.md` using the `Edit` or `Write` tool.
-3. Invoke the `superpowers:writing-plans` skill. Same path caveat: capture the generated plan and save it to `.specs/memory/features/<slug>/tasks.md`.
+2. Invoke the `colbPowers:brainstorming` skill. For iteration 1, it still writes to its default location — relay the output file path to the user, and follow up by copying the result into `.specs/memory/features/<slug>/design.md` using the `Edit` or `Write` tool.
+3. Invoke the `colbPowers:writing-plans` skill. Same path caveat: capture the generated plan and save it to `.specs/memory/features/<slug>/tasks.md`.
 
-(Artifact-path adaptation in the bundled superpowers skills themselves is deferred to iteration 2; the orchestrator handles the relocation for now.)
+(Artifact-path adaptation in the bundled colbPowers skills themselves is deferred to iteration 2; the orchestrator handles the relocation for now.)
 
 When complete, update `.specs/memory/active_context.json` — set `status` to `ready-to-execute`.
 
@@ -1656,7 +1656,7 @@ Preconditions:
 
 Per the subagent dispatch rule in `using-colbpowers`: before dispatching, summarize the scope in one sentence ("I'll dispatch N subagents for the M tasks in `<feature>/tasks.md`, each with TDD + verification-before-completion. Proceed?") and wait for user confirmation.
 
-On confirmation, invoke the `superpowers:subagent-driven-development` skill. Pass it the path to `tasks.md` as the plan. The skill handles per-task dispatch, two-stage review, and commit cadence.
+On confirmation, invoke the `colbPowers:subagent-driven-development` skill. Pass it the path to `tasks.md` as the plan. The skill handles per-task dispatch, two-stage review, and commit cadence.
 
 After each task completes, update `.specs/memory/active_context.json` to reflect progress.
 
@@ -2017,8 +2017,8 @@ Using the feature added in Task 22.
 
 Expected:
 - `.specs/memory/features/<slug>/` directory exists.
-- `design.md` has been brainstormed and populated (via superpowers:brainstorming, then relocated by the orchestrator per the `/colb:plan` command instructions).
-- `tasks.md` contains a concrete TDD plan (from superpowers:writing-plans, relocated).
+- `design.md` has been brainstormed and populated (via colbPowers:brainstorming, then relocated by the orchestrator per the `/colb:plan` command instructions).
+- `tasks.md` contains a concrete TDD plan (from colbPowers:writing-plans, relocated).
 - `active_context.json` reflects `status: ready-to-execute`.
 
 - [ ] **Step 2: Run `/colb:execute <feature>`**

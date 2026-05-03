@@ -53,7 +53,7 @@ This structure informs the task decomposition. Each task should produce self-con
 ```markdown
 # [Feature Name] Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use colbPowers:subagent-driven-development (recommended) or colbPowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Feature Reference:** [MUST explicitly mention which feature(s) from `features.md` this plan implements]
 
@@ -150,9 +150,9 @@ After saving the plan, offer execution choice:
 **Which approach?"**
 
 **If Subagent-Driven chosen:**
-- **REQUIRED SUB-SKILL:** Use superpowers:subagent-driven-development
+- **REQUIRED SUB-SKILL:** Use colbPowers:subagent-driven-development
 - Fresh subagent per task + two-stage review
 
 **If Inline Execution chosen:**
-- **REQUIRED SUB-SKILL:** Use superpowers:executing-plans
+- **REQUIRED SUB-SKILL:** Use colbPowers:executing-plans
 - Batch execution with checkpoints for review
