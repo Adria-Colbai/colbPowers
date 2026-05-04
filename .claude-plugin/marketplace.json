@@ -9,7 +9,7 @@
     {
       "name": "colbPowers",
       "description": "Spec-first Claude Code plugin combining constitution-driven governance with superpowers-style TDD execution.",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "source": "./",
       "author": {
         "name": "Adrià Cebrián",
